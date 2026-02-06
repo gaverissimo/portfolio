@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Labs & Projects - Gabrielli</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+    <div class="brand"><a href="index.html">Gabrielli Verissimo Santos</a></div>
+    <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="labs.html">Labs & Projects</a>
+        <a href="sobre.html">Sobre Mim</a>
+    </nav>
+    <div class="controls">
+        <div class="lang-toggle"><button id="btn-pt-labs" class="lang active">PT</button><button id="btn-en-labs" class="lang">EN</button></div>
+
+        <input type="checkbox" id="darkmode-toggle" />
+        <label for="darkmode-toggle" class="dark-toggle-label">
+            <img src="images/sun.svg" class="sun" alt="sun">
+            <img src="images/moon.svg" class="moon" alt="moon">
+        </label>
+    </div>
+</header>
+
+<div class="background"></div>
+
+<main class="container">
+    <section class="labs-hero">
+        <h1>Labs & Projects</h1>
+        <p>Aqui estão alguns labs e projetos que desenvolvi para explorar minhas habilidades em Cloud, DevOps, Segurança e Linux.</p>
+    </section>
+
+    <section class="projects-list">
+        <div class="project-row">
+            <div class="project-icon-box">
+                <img src="images/cloud.svg" alt="cloud" class="project-icon">
+            </div>
+            <div class="project-content">
+                <h3>Cloud & Identity</h3>
+                <ul>
+                    <li>Configuração de Identidade no Azure AD</li>
+                    <li>Gerenciamento de usuários e grupos</li>
+                    <li>Políticas e Permissões</li>
+                </ul>
+            </div>
+            <div class="project-cta">
+                <a class="details-btn" href="#">Ver Detalhes &rsaquo;</a>
+            </div>
+        </div>
+
+        <div class="project-row">
+            <div class="project-icon-box">
+                <img src="images/security.svg" alt="security" class="project-icon">
+            </div>
+            <div class="project-content">
+                <h3>Security</h3>
+                <ul>
+                    <li>Assessment no Active Directory</li>
+                    <li>Análise de Vulnerabilidades</li>
+                    <li>Ferramentas de Segurança</li>
+                </ul>
+            </div>
+            <div class="project-cta">
+                <a class="details-btn" href="#">Ver Detalhes &rsaquo;</a>
+            </div>
+        </div>
+
+        <div class="project-row">
+            <div class="project-icon-box">
+                <img src="images/linux-docker.svg" alt="linux" class="project-icon">
+            </div>
+            <div class="project-content">
+                <h3>Linux</h3>
+                <ul>
+                    <li>Administração Básica</li>
+                    <li>Gerenciamento de Pacotes</li>
+                    <li>Scripts e Automação</li>
+                </ul>
+            </div>
+            <div class="project-cta">
+                <a class="details-btn" href="#">Ver Detalhes &rsaquo;</a>
+            </div>
+        </div>
+
+        <div class="project-row">
+            <div class="project-icon-box">
+                <img src="images/security.svg" alt="pentest" class="project-icon">
+            </div>
+            <div class="project-content">
+                <h3>Pentest</h3>
+                <ul>
+                    <li>Enumeração de Redes</li>
+                    <li>Scan de Vulnerabilidades</li>
+                    <li>Ferramentas de Testes Pentest</li>
+                </ul>
+            </div>
+            <div class="project-cta">
+                <a class="details-btn" href="#">Ver Detalhes &rsaquo;</a>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

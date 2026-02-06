@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Gabrielli - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="site-header">
+    <div class="brand">
+        <a href="index.html">Gabrielli Verissimo Santos</a>
+    </div>
+    <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="labs.html">Labs & Projects</a>
+        <a href="sobre.html">Sobre Mim</a>
+    </nav>
+    <div class="controls">
+        <div class="lang-toggle">
+            <button id="btn-pt" class="lang active">PT</button>
+            <button id="btn-en" class="lang">EN</button>
+        </div>
+
+        <!-- Dark mode toggle (checkbox + label) -->
+        <input type="checkbox" id="darkmode-toggle" />
+        <label for="darkmode-toggle" class="dark-toggle-label">
+            <img src="images/sun.svg" class="sun" alt="sun">
+            <img src="images/moon.svg" class="moon" alt="moon">
+        </label>
+    </div>
+    
+</header>
+
+<div class="background"></div>
+
+<main>
+    <section class="hero">
+        <div class="hero-left">
+            <p class="salutation">Olá, Eu sou</p> 
+            <h1 id="hero-name">Gabrielli Verissimo Santos.</h1>
+            <p class="hero-subtitle">Analista & IT Enthusiast</p>
+            <p id="hero-desc">Explorando DevOps, Cloud e Segurança. Compartilhando meus conhecimentos e projetos.</p>
+            <div class="hero-actions">
+                <a id="btnLabs" class="btn primary" href="labs.html">Labs & Projetos</a>
+                <a id="btnSobre" class="btn ghost" href="sobre.html">Sobre Mim</a>
+            </div>
+        </div>
+        <div class="hero-right">
+            <img src="images/home.png" alt="ilustração" class="hero-img">
+        </div>
+    </section>
+
+    <section class="intro-line">
+        <p>Explorando DevOps, Cloud e Segurança. Compartilhando meus conhecimentos e projetos.</p>
+    </section>
+
+    <section class="cards">
+        <article class="card">
+            <img src="images/cloud.png" alt="cloud" class="card-icon">
+            <h3>Cloud & Azure</h3>
+            <p class="muted">Gerenciamento e configuração no Azure.</p>
+        </article>
+
+        <article class="card">
+            <img src="images/linux.png" alt="linux & docker" class="card-icon">
+            <h3>Linux & DevOps</h3>
+            <p class="muted">Containers, Automação e CI/CD</p>
+        </article>
+
+        <article class="card">
+            <img src="images/security.png" alt="security" class="card-icon">
+            <h3>Security & Pentest</h3>
+            <p class="muted">Testes de Vulnerabilidade e Segurança.</p>
+        </article>
+    </section>
+
+    <section class="learning">
+        <h2 class="section-title">Em Aprendizado</h2>
+        <div class="learning-grid">
+            <div class="learn-card filled">
+                <img src="images/docker.svg" alt="docker" class="learn-icon">
+                <p>Docker</p>
+            </div>
+            <div class="learn-card placeholder">
+                <p>Em breve</p>
+            </div>
+            <div class="learn-card placeholder">
+                <p>Em breve</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <p>Este site é versionado e automatizado via GitHub e CI/CD.</p>
+    </footer>
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>

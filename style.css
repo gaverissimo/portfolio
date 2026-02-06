@@ -1,0 +1,215 @@
+:root{
+    --bg: #f4f7fb;
+    --surface: #ffffff;
+    --text: #1f2d3d;
+    --muted: #6b7a8a;
+    --accent: #4c79ff;
+    --accent-dark: #184a78;
+    --card-shadow: rgba(31,45,61,0.08);
+}
+
+[data-theme="dark"]{
+    --bg: #0f1720;
+    --surface: #0b1220;
+    --text: #e6eef8;
+    --muted: #9aa8bb;
+    --accent: #5ea2ff;
+    --card-shadow: rgba(0,0,0,0.6);
+}
+
+*{box-sizing:border-box}
+body {
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    margin: 0;
+    background-color: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing:antialiased;
+}
+
+.site-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    padding:18px 28px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.6), transparent);
+    backdrop-filter: blur(4px);
+}
+/* keep header above background and toggle */
+.site-header{position:relative;z-index:50}
+.brand a{font-weight:700;color:var(--text);text-decoration:none;font-size:1.1rem}
+.main-nav a{margin-left:18px;text-decoration:none;color:var(--muted);transition:color .18s}
+.main-nav a:hover{color:var(--text)}
+.main-nav a{position:relative;padding:8px 10px;border-radius:6px}
+
+/* Active nav link: blue text, subtle pill background and underline bar */
+.main-nav a.active{color:var(--accent);background:linear-gradient(180deg, rgba(76,121,255,0.08), rgba(76,121,255,0.03));box-shadow:0 6px 14px rgba(76,121,255,0.06)}
+.main-nav a.active::after{content:'';position:absolute;left:10%;right:10%;height:4px;background:var(--accent);bottom:-12px;border-radius:4px}
+.controls{display:flex;align-items:center;gap:10px}
+.lang-toggle .lang{border:1px solid transparent;background:transparent;padding:6px 8px;border-radius:6px;cursor:pointer}
+.lang-toggle .lang.active{background:var(--surface);box-shadow:0 2px 6px var(--card-shadow);color:var(--text)}
+.lang-toggle .lang{color:var(--text);opacity:0.9}
+.lang-toggle .lang:hover{transform:translateY(-2px);transition:transform .18s}
+.theme-toggle{padding:6px 10px;border-radius:8px;border:1px solid rgba(0,0,0,0.06);background:var(--surface);cursor:pointer}
+
+/* INDEX PAGE STYLES - START */
+.hero{display:flex;gap:40px;align-items:center;padding:48px 20px}
+.hero-left{max-width:640px}
+.hero{
+    display:flex;
+    gap:48px;
+    align-items:center;
+    padding:48px 24px;
+    max-width:1100px;
+    margin:40px auto;
+    justify-content:center; /* center the text+image block */
+}
+.hero-left{max-width:520px;flex:0 0 48%}
+.hero-right{flex:0 0 48%;display:flex;justify-content:center}
+.salutation{margin:0;color:var(--muted)}
+h1#hero-name{font-size:48px;margin:6px 0 8px}
+.hero-subtitle{color:var(--accent);margin:0 0 10px}
+.salutation{margin:0;color:var(--text);font-weight:700}
+h1#hero-name{font-size:56px;margin:6px 0 8px;color:var(--accent-dark);font-weight:800;line-height:1}
+.hero-subtitle{color:var(--text);margin:0 0 10px;font-weight:600}
+.hero p#hero-desc{color:var(--muted);line-height:1.6}
+.hero-img{max-width:420px;width:100%;height:auto}
+
+.hero-actions{margin-top:18px;display:flex;gap:12px}
+.btn{display:inline-block;padding:12px 20px;border-radius:10px;text-decoration:none}
+.btn.primary{background:var(--accent);color:white}
+.btn.ghost{background:transparent;border:1px solid rgba(0,0,0,0.06);color:var(--text)}
+
+.intro-line{text-align:center;padding:18px 20px;color:var(--muted)}
+
+.cards{display:flex;gap:20px;padding:28px;justify-content:center}
+.card{background:var(--surface);padding:20px;border-radius:14px;box-shadow:0 8px 20px var(--card-shadow);width:260px;text-align:center}
+.card-icon{width:90px;height:90px;object-fit:contain;margin-bottom:12px} /* Ajuste de imagem cards Homepage */
+.muted{color:var(--muted)}
+
+.learning{padding:32px 36px}
+.section-title{text-align:center;margin:0 0 18px}
+.learning-grid{display:flex;gap:16px;justify-content:center}
+.learn-card{background:var(--surface);padding:18px;border-radius:12px;min-width:160px;text-align:center;box-shadow:0 6px 16px var(--card-shadow)}
+.learn-card.filled{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent)}
+.learn-icon{width:42px;height:42px;margin-bottom:8px}
+.learn-card.placeholder{opacity:0.6;color:var(--muted)}
+
+.site-footer{text-align:center;padding:36px;color:var(--muted)}
+
+/* LABS PAGE STYLES - START */
+/* Projects list (labs) */
+.labs-hero{padding:28px 36px}
+.projects-list{display:flex;flex-direction:column;gap:18px;padding:20px 36px 36px}
+.project-row{display:flex;align-items:center;background:var(--surface);border-radius:12px;padding:18px;box-shadow:0 8px 20px var(--card-shadow)}
+.project-icon-box{width:96px;height:96px;display:flex;align-items:center;justify-content:center;border-radius:10px;margin-right:18px;background:linear-gradient(180deg,rgba(0,0,0,0.02),transparent)}
+.project-icon{width:64px;height:64px;object-fit:contain}
+.project-content{flex:1}
+.project-content h3{margin:4px 0 8px}
+.project-content ul{margin:0;padding-left:18px;color:var(--muted)}
+.project-cta{margin-left:18px}
+.details-btn{display:inline-block;padding:10px 16px;background:var(--accent);color:white;border-radius:8px;text-decoration:none}
+
+@media (max-width:900px){
+    .project-row{flex-direction:column;align-items:flex-start}
+    .project-cta{width:100%;margin-top:12px}
+}
+
+/* Responsive */
+@media (max-width:900px){
+    .hero{flex-direction:column;padding:28px}
+    h1#hero-name{font-size:36px}
+    .cards{flex-direction:column;align-items:center}
+}
+.card {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+
+/* ABOUT (SOBRE) PAGE STYLES - START */
+.about-hero{padding:28px 36px}
+.about{padding:20px 36px}
+.about-card{background:var(--surface);padding:20px;border-radius:12px;box-shadow:0 8px 20px var(--card-shadow);margin-bottom:18px}
+.profile-card{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.profile-content{max-width:70%}
+.profile-content h2{margin-top:4px;margin-bottom:8px}
+.social-links{display:flex;gap:12px;align-items:center}
+
+/* Social link buttons used on Sobre page */
+.social-link{display:inline-flex;align-items:center;gap:10px;padding:8px 12px;border-radius:12px;background:var(--surface);box-shadow:0 10px 22px var(--card-shadow);text-decoration:none;color:var(--text);transition:transform .22s ease,box-shadow .22s ease,background .22s ease, color .22s ease}
+.social-link .social-icon{width:24px;height:24px;display:block}
+.social-link .label{font-weight:600;opacity:0.95}
+.social-link:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,0.12);background:linear-gradient(90deg,var(--accent),#7fb5ff);color:#fff}
+.social-link:hover .social-icon{filter:brightness(0) invert(1)}
+
+/* small floating pulse on hover for icon */
+.social-link:hover .social-icon{animation:float .8s ease-in-out}
+@keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-4px)}100%{transform:translateY(0)}}
+
+@media (max-width:900px){
+    .social-link .label{display:none}
+}
+.formation-card p{margin:6px 0}
+.intercambio-card .gallery{display:flex;gap:12px;margin-top:12px}
+.gallery-img{width:calc((100% - 24px)/3);height:140px;object-fit:cover;border-radius:10px}
+
+@media (max-width:900px){
+    .profile-card{flex-direction:column;align-items:flex-start}
+    .gallery-img{width:100%;height:220px}
+}
+
+/* DARK MODE TOGGLE (checkbox + label) - header-sized version */
+#darkmode-toggle{width:0;height:0;visibility:hidden}
+.dark-toggle-label{
+    width:120px;
+    height:44px;
+    position: relative;
+    display: block;
+    background: #ebebeb;
+    border-radius: 200px;
+    box-shadow: inset 0px 5px 15px rgba(0,0,0,0.12), inset 0px -5px 15px rgba(255,255,255,0.4);
+    cursor: pointer;
+    margin-left:8px;
+}
+.dark-toggle-label:after{
+    content: "";
+    width:36px;
+    height:36px;
+    position:absolute;
+    top:4px;
+    left:4px;
+    background: linear-gradient(180deg,#ffcc89,#d8860b);
+    border-radius: 180px;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+}
+
+/* checked state moves knob and darkens background */
+#darkmode-toggle:checked + .dark-toggle-label{background:#242424}
+#darkmode-toggle:checked + .dark-toggle-label:after{left:80px;transform:translateX(-100%);background:linear-gradient(180deg,#777,#3a3a3a)}
+.dark-toggle-label, .dark-toggle-label:after{transition:0.3s}
+.dark-toggle-label:active:after{width:46px}
+
+/* floating page background that follows toggle state (small effect) */
+.background{width:100vw;height:100vh;background:var(--bg);z-index:-999;position:fixed;top:0;left:0;transition:0.3s}
+
+/* icons inside label */
+.dark-toggle-label img{position:absolute;width:20px;top:12px;z-index:100;pointer-events:none}
+.dark-toggle-label img.sun{left:12px;filter:brightness(1)}
+.dark-toggle-label img.moon{right:12px;left:auto;filter:grayscale(1) brightness(.7)}
+#darkmode-toggle:checked + .dark-toggle-label img.sun{filter:grayscale(1) brightness(.6)}
+#darkmode-toggle:checked + .dark-toggle-label img.moon{filter:brightness(1) invert(1)}
+
+@media (max-width:480px){
+    .dark-toggle-label{width:100px;height:36px}
+    .dark-toggle-label:after{width:30px;height:30px;top:3px;left:3px}
+    #darkmode-toggle:checked + .dark-toggle-label:after{left:64px}
+}
+
+/* ABOUT (SOBRE) PAGE STYLES - END */
+
+
