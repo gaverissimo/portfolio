@@ -1,0 +1,9 @@
+version: "3.9"
+
+services:
+  app:
+    container_name: meu-site
+    build: .
+    ports:
+      - "3000:80"
+    restart: always

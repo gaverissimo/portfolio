@@ -1,0 +1,20 @@
+name: Pipeline Inicial
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar código
+        uses: actions/checkout@v4
+
+      - name: Mostrar arquivos
+        run: ls -la
+
+      - name: Simular build
+        run: echo "Build realizado com sucesso"
