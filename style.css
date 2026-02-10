@@ -135,8 +135,8 @@ h1#hero-name{font-size:56px;margin:6px 0 8px;color:var(--accent-dark);font-weigh
 .labs-hero{padding:28px 36px}
 .projects-list{display:flex;flex-direction:column;gap:18px;padding:20px 36px 36px}
 .project-row{display:flex;align-items:center;background:var(--surface);border-radius:12px;padding:18px;box-shadow:0 8px 20px var(--card-shadow)}
-.project-icon-box{width:96px;height:96px;display:flex;align-items:center;justify-content:center;border-radius:10px;margin-right:18px;background:linear-gradient(180deg,rgba(0,0,0,0.02),transparent)}
-.project-icon{width:64px;height:64px;object-fit:contain}
+.project-icon-box{width:140px;height:140px;display:flex;align-items:center;justify-content:center;border-radius:14px;margin-right:22px;background:linear-gradient(180deg,rgba(0,0,0,0.02),transparent)}
+.project-icon{width:110px;height:110px;object-fit:contain}
 .project-content{flex:1}
 .project-content h3{margin:4px 0 8px}
 .project-content ul{margin:0;padding-left:18px;color:var(--muted)}
@@ -146,6 +146,8 @@ h1#hero-name{font-size:56px;margin:6px 0 8px;color:var(--accent-dark);font-weigh
 @media (max-width:900px){
     .project-row{flex-direction:column;align-items:flex-start}
     .project-cta{width:100%;margin-top:12px}
+    .project-icon-box{width:96px;height:96px;margin-right:12px}
+    .project-icon{width:64px;height:64px}
 }
 
 /* Responsive */
