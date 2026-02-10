@@ -1,26 +1,32 @@
 # Portfolio – Gabrielli Verissimo Santos
 
-Portfólio profissional com projetos e laboratórios de estudo em:
+Portfólio profissional com projetos e laboratórios de estudo de Cloud, DevOps, Segurança e Linux.
 
-- Cloud & Azure
-- Linux & DevOps
-- Security & Pentest
+## Site online
+https://gaverissimo.github.io/portfolio/
 
 ## Sobre o projeto
 Este site foi desenvolvido para documentar minha evolução prática em Infraestrutura, DevOps e Segurança.
 
-O objetivo é mostrar projetos reais, estudos e laboratórios.
+Todos os conteúdos são baseados em laboratórios reais e documentação técnica.
 
 ## Tecnologias utilizadas
 - HTML
 - CSS
-- Git
-- GitHub
+- JavaScript
+- Git e GitHub
+- GitHub Pages
+- GitHub Actions (CI/CD)
+- Docker (ambiente local)
 
-## Próximos passos
-- Containerizar o site com Docker
-- Criar pipeline CI/CD com GitHub Actions
-- Publicar novamente o site online
+## Funcionalidades implementadas
+
+- Site estático responsivo
+- Alternância de tema (dark/light)
+- Alternância de idioma
+- Busca em Labs
+- Pipeline CI/CD com deploy automático
+- Estrutura de documentação técnica
 
 ## Autor
 Gabrielli   
