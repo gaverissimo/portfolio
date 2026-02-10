@@ -11,7 +11,15 @@
     <div class="brand"><a href="index.html">Gabrielli Verissimo Santos</a></div>
     <nav class="main-nav">
         <a href="index.html">Home</a>
-        <a href="labs.html">Labs & Projects</a>
+        <div class="nav-item has-dropdown">
+            <a href="labs.html" class="has-link">Labs & Projects</a>
+            <div class="dropdown">
+                <a href="labs-cloud.html">Cloud & Identity</a>
+                <a href="labs-security.html">Security</a>
+                <a href="labs-linux.html">Linux</a>
+                <a href="labs-devops.html">DevOps &amp; Automation</a>
+            </div>
+        </div>
         <a href="sobre.html">Sobre Mim</a>
     </nav>
     <div class="controls">
@@ -29,12 +37,22 @@
 
 <main class="container">
     <section class="labs-hero">
-        <h1>Labs & Projects</h1>
-        <p>Aqui estão alguns labs e projetos que desenvolvi para explorar minhas habilidades em Cloud, DevOps, Segurança e Linux.</p>
+        <div class="labs-hero-left">
+            <h1>Labs & Projects</h1>
+            <p>Aqui estão alguns labs e projetos que desenvolvi para explorar minhas habilidades em Cloud, DevOps, Segurança e Linux.</p>
+        </div>
+        <div class="labs-hero-right">
+            <form class="search-form" action="javascript:void(0);" aria-label="Pesquisar labs">
+                <label class="search-box">
+                    <svg class="search-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79L20 21.5 21.5 20l-6-6zM10 15a5 5 0 110-10 5 5 0 010 10z"></path></svg>
+                    <input id="labs-search" type="search" placeholder="Search" aria-label="Pesquisar labs">
+                </label>
+            </form>
+        </div>
     </section>
 
     <section class="projects-list">
-        <div class="project-row">
+    <div class="project-row">
             <div class="project-icon-box">
                 <img src="images/cloud.svg" alt="cloud" class="project-icon">
             </div>
@@ -45,13 +63,13 @@
                 </ul>
             </div>
             <div class="project-cta">
-                <a class="details-btn" href="#">Ver Detalhes &rsaquo;</a>
+                <a class="details-btn" href="labs-cloud.html">Ver Detalhes &rsaquo;</a>
             </div>
         </div>
 
         <div class="project-row">
             <div class="project-icon-box">
-                <img src="images/sec-lab1.svg" alt="security" class="project-icon">
+                <img src="images/sec.svg" alt="security" class="project-icon">
             </div>
             <div class="project-content">
                 <h3>Security</h3>
@@ -60,7 +78,7 @@
                 </ul>
             </div>
             <div class="project-cta">
-                <a class="details-btn" href="#">Ver Detalhes &rsaquo;</a>
+                <a class="details-btn" href="labs-security.html">Ver Detalhes &rsaquo;</a>
             </div>
         </div>
 
@@ -71,26 +89,27 @@
             <div class="project-content">
                 <h3>Linux</h3>
                 <ul>
-                    <li>Em Breve</li>
+                        <li>Em Breve</li>
                 </ul>
             </div>
             <div class="project-cta">
-                <a class="details-btn" href="#">Ver Detalhes &rsaquo;</a>
+                <a class="details-btn" href="labs-linux.html">Ver Detalhes &rsaquo;</a>
             </div>
         </div>
 
         <div class="project-row">
             <div class="project-icon-box">
-                <img src="images/sec-lab.svg" alt="pentest" class="project-icon">
+                <img src="images/devops.svg" alt="pentest" class="project-icon">
             </div>
             <div class="project-content">
-                <h3>Em Breve</h3>
+                <h3>DevOps &amp; Automation</h3>
                 <ul>
-                    <li>Em Breve</li>
+                        <li>Versionamento com Git e GitHub</li>
+                        <li>Docker básico – Executando um site com Nginx</li>
                 </ul>
             </div>
             <div class="project-cta">
-                <a class="details-btn" href="#">Ver Detalhes &rsaquo;</a>
+                <a class="details-btn" href="labs-devops.html">Ver Detalhes &rsaquo;</a>
             </div>
         </div>
     </section>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Guia de Versionamento com Git e GitHub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+    <div class="brand"><a href="index.html">Gabrielli Verissimo Santos</a></div>
+    <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <div class="nav-item has-dropdown">
+            <a href="labs.html" class="has-link">Labs & Projects</a>
+                <div class="dropdown">
+                <a href="labs-cloud.html">Cloud & Identity</a>
+                <a href="labs-security.html">Security</a>
+                <a href="labs-linux.html">Linux</a>
+                <a href="labs-devops.html">DevOps &amp; Automation</a>
+            </div>
+        </div>
+        <a href="sobre.html">Sobre Mim</a>
+    </nav>
+    <div class="controls">
+        <div class="lang-toggle"><button id="btn-pt-doclinux" class="lang active">PT</button><button id="btn-en-doclinux" class="lang">EN</button></div>
+
+        <input type="checkbox" id="darkmode-toggle" />
+        <label for="darkmode-toggle" class="dark-toggle-label">
+            <img src="images/sun.svg" class="sun" alt="sun">
+            <img src="images/moon.svg" class="moon" alt="moon">
+        </label>
+    </div>
+</header>
+
+<div class="background"></div>
+
+<main class="container doc-layout">
+    <aside class="doc-sidebar">
+        <div class="doc-nav">
+            <a class="doc-nav-item active">Details</a>
+            <a class="doc-nav-item">Linux</a>
+            <a class="doc-nav-item">Examples</a>
+        </div>
+    </aside>
+
+    <section class="doc-main">
+        <div class="doc-breadcrumb">Documents &rsaquo; Linux &rsaquo; Git e GitHub</div>
+        <h1>Guia rápido: Versionamento com Git e GitHub</h1>
+        <p class="muted">Procedimento básico para versionamento local com Git e publicação de projetos no GitHub.</p>
+
+                <!-- User-provided lab documentation: Git & GitHub quickstart -->
+                <section class="lab">
+
+                <h2>Versionamento com Git e GitHub</h2>
+
+                <h3>Inicializar repositório local</h3>
+
+                <p><strong>1. Abrir o terminal na pasta do projeto</strong></p>
+
+                <p><strong>2. Inicializar o Git</strong></p>
+
+                <pre>
+                git init
+                </pre>
+
+                <p><strong>Função:</strong> Cria a pasta oculta <code>.git</code>, responsável por armazenar:</p>
+                <ul>
+                    <li>Histórico de alterações</li>
+                    <li>Commits</li>
+                    <li>Versões do projeto</li>
+                </ul>
+
+                <h3>Verificar status dos arquivos</h3>
+
+                <pre>
+                git status
+                </pre>
+
+                <p><strong>Função:</strong> Mostra arquivos modificados ou ainda não versionados.</p>
+
+                <h3>Adicionar arquivos para commit</h3>
+
+                <pre>
+                git add .
+                </pre>
+
+                <p><strong>Função:</strong> Envia os arquivos para a staging area, preparando para o commit.</p>
+
+                <h3>Criar um commit</h3>
+
+                <pre>
+                git commit -m "Primeira versão do portfolio"
+                </pre>
+
+                <p><strong>Função:</strong> Salva um snapshot do projeto naquele momento.</p>
+
+                <h3>Criar repositório no GitHub</h3>
+
+                <ol>
+                    <li>Clicar em <strong>New repository</strong></li>
+                    <li>Definir um nome</li>
+                    <li>Selecionar <strong>Public</strong></li>
+                    <li>Não marcar a opção README</li>
+                    <li>Clicar em Create repository</li>
+                </ol>
+
+                <h3>Conectar projeto local ao GitHub</h3>
+
+                <pre>
+                git remote add origin https://github.com/SEU-USUARIO/portfolio.git
+                git branch -M main
+                git push -u origin main
+                </pre>
+
+                <p><strong>Função:</strong> Envia o projeto local para o repositório remoto.</p>
+
+                <h3>Fluxo resumido</h3>
+
+                <pre>
+                git add .
+                git commit -m "mensagem"
+                git push
+                </pre>
+
+                <h3>Como funciona o Git no projeto?</h3>
+
+                <pre>
+                Versiona o codigo localmente com Git, faz commits das alteracoes e envia para o GitHub usando push. 
+                Isso permite manter historico e trabalhar com CI/CD depois.
+                </pre>
+
+                </section>
+
+                <p><a class="details-btn" href="labs-linux.html">&lsaquo; Voltar</a></p>
+    </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

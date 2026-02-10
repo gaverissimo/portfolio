@@ -109,3 +109,83 @@ function markActiveNav(){
 }
 
 document.addEventListener('DOMContentLoaded', markActiveNav);
+
+// Dropdown accessibility for touch devices: toggle dropdown on first tap/click
+document.addEventListener('DOMContentLoaded', ()=>{
+    document.querySelectorAll('.nav-item.has-dropdown > .has-link').forEach(link=>{
+        // mark initial state
+        link.setAttribute('aria-expanded','false');
+        link.addEventListener('click', (e)=>{
+            const parent = link.parentElement;
+            if(!parent) return;
+            const href = link.getAttribute('href').split('/').pop();
+            const current = location.pathname.split('/').pop() || 'index.html';
+
+            // If we're already on the target page, toggle dropdown without navigating
+            if(current === href){
+                e.preventDefault();
+                const isOpen = parent.classList.contains('open');
+                // close other dropdowns
+                document.querySelectorAll('.nav-item.has-dropdown.open').forEach(p=>p.classList.remove('open'));
+                if(!isOpen) {
+                    parent.classList.add('open');
+                    link.setAttribute('aria-expanded','true');
+                } else {
+                    parent.classList.remove('open');
+                    link.setAttribute('aria-expanded','false');
+                }
+                // prevent the click from bubbling to the document handler which may close the menu
+                e.stopPropagation();
+                return;
+            }
+
+            // If we're on a different page, allow navigation but remember to open dropdown on arrival
+            try{ localStorage.setItem('open-dropdown','labs'); }catch(_){}
+            // do not preventDefault — navigation will occur
+        });
+    });
+
+    // On pages load, if navigation requested opening the labs dropdown, open it on labs.html
+    const pending = localStorage.getItem('open-dropdown');
+    if(pending === 'labs'){
+        const current = location.pathname.split('/').pop() || 'index.html';
+        if(current === 'labs.html'){
+            const navItem = document.querySelector('.nav-item.has-dropdown');
+            const link = navItem ? navItem.querySelector('.has-link') : null;
+            if(navItem){
+                navItem.classList.add('open');
+                if(link) link.setAttribute('aria-expanded','true');
+            }
+            try{ localStorage.removeItem('open-dropdown'); }catch(_){}
+        }
+    }
+
+    // close dropdown when clicking outside
+    document.addEventListener('click', (e)=>{
+        if(!e.target.closest('.nav-item.has-dropdown')){
+            document.querySelectorAll('.nav-item.has-dropdown.open').forEach(p=>p.classList.remove('open'));
+        }
+    });
+});
+
+// Labs search: filter project rows on labs page
+document.addEventListener('DOMContentLoaded', ()=>{
+    const search = document.getElementById('labs-search');
+    if(!search) return;
+    const rows = Array.from(document.querySelectorAll('.project-row'));
+    const normalize = s => (s||'').toString().toLowerCase().trim();
+
+    const filter = (q)=>{
+        const qn = normalize(q);
+        rows.forEach(r=>{
+            const title = normalize(r.querySelector('.project-content h3')?.textContent);
+            const body = normalize(r.querySelector('.project-content')?.textContent);
+            const found = qn === '' || title.includes(qn) || body.includes(qn);
+            r.style.display = found ? '' : 'none';
+        });
+    };
+
+    search.addEventListener('input', (e)=> filter(e.target.value));
+    // optional: allow pressing Esc to clear
+    search.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') { e.target.value=''; filter(''); } });
+});

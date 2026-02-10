@@ -26,6 +26,23 @@ body {
     -webkit-font-smoothing:antialiased;
 }
 
+/* Layout container used across pages to constrain content width */
+.container{
+    max-width:1100px;
+    margin:0 auto;
+    padding:0 20px;
+    width:100%;
+}
+
+/* Header: allow wrapping on small screens and keep items aligned */
+.site-header{flex-wrap:wrap}
+.site-header .brand{flex:0 0 auto}
+.site-header .main-nav{flex:1 1 auto;display:flex;align-items:center;justify-content:center}
+.site-header .controls{flex:0 0 auto;display:flex;align-items:center}
+
+/* Make nav items scrollable on very small screens to avoid overflow */
+.main-nav{gap:12px;overflow:visible}
+
 .site-header{
     display:flex;
     align-items:center;
@@ -38,9 +55,36 @@ body {
 /* keep header above background and toggle */
 .site-header{position:relative;z-index:50}
 .brand a{font-weight:700;color:var(--text);text-decoration:none;font-size:1.1rem}
-.main-nav a{margin-left:18px;text-decoration:none;color:var(--muted);transition:color .18s}
+.main-nav{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.main-nav a{margin-left:0;text-decoration:none;color:var(--muted);transition:color .18s;white-space:nowrap}
 .main-nav a:hover{color:var(--text)}
 .main-nav a{position:relative;padding:8px 10px;border-radius:6px}
+
+/* Nav dropdown container and behavior */
+.nav-item.has-dropdown{position:relative}
+.nav-item.has-dropdown > .has-link::after{content:'▾';display:inline-block;margin-left:8px;font-size:0.8em;opacity:0.9}
+.nav-item.has-dropdown > .has-link{cursor:pointer}
+.nav-item.has-dropdown .dropdown{
+    display:none;
+    position:absolute;
+    top:calc(100% + 8px);
+    left:0;
+    background:var(--surface);
+    border-radius:10px;
+    box-shadow:0 8px 24px rgba(31,45,61,0.12);
+    padding:8px 0;
+    min-width:180px;
+    z-index:60;
+}
+.nav-item.has-dropdown .dropdown a{display:block;padding:10px 16px;color:var(--muted);text-decoration:none}
+.nav-item.has-dropdown .dropdown a:hover{color:var(--text);background:rgba(0,0,0,0.02)}
+.nav-item.has-dropdown.open .dropdown,
+.nav-item.has-dropdown:hover .dropdown{display:block}
 
 /* Active nav link: blue text, subtle pill background and underline bar */
 .main-nav a.active{color:var(--accent);background:linear-gradient(180deg, rgba(76,121,255,0.08), rgba(76,121,255,0.03));box-shadow:0 6px 14px rgba(76,121,255,0.06)}
@@ -132,7 +176,28 @@ h1#hero-name{font-size:56px;margin:6px 0 8px;color:var(--accent-dark);font-weigh
 
 /* LABS PAGE STYLES - START */
 /* Projects list (labs) */
-.labs-hero{padding:28px 36px}
+.labs-hero{
+    padding:28px 36px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+.labs-hero-left{flex:1;min-width:220px}
+.labs-hero-right{flex:0 0 420px;display:flex;justify-content:flex-end}
+
+/* Search box styling (rounded pill) */
+.search-form{display:flex;align-items:center;width:100%;justify-content:flex-end}
+.search-box{display:flex;align-items:center;gap:12px;width:360px;max-width:100%;background:var(--surface);padding:12px 18px;border-radius:36px;box-shadow:0 6px 18px var(--card-shadow);border:1px solid rgba(31,45,61,0.06)}
+.search-box .search-icon{color:var(--muted);flex:0 0 20px}
+.search-box input{border:0;background:transparent;outline:none;font-size:16px;color:var(--text);width:100%;padding:0}
+.search-box input::placeholder{color:var(--muted)}
+
+@media (max-width:900px){
+    .labs-hero{flex-direction:column;align-items:flex-start}
+    .labs-hero-right{width:100%;justify-content:flex-start;margin-top:12px}
+    .search-box{width:100%;border-radius:14px}
+}
 .projects-list{display:flex;flex-direction:column;gap:18px;padding:20px 36px 36px}
 .project-row{display:flex;align-items:center;background:var(--surface);border-radius:12px;padding:18px;box-shadow:0 8px 20px var(--card-shadow)}
 .project-icon-box{width:140px;height:140px;display:flex;align-items:center;justify-content:center;border-radius:14px;margin-right:22px;background:linear-gradient(180deg,rgba(0,0,0,0.02),transparent)}
@@ -142,6 +207,28 @@ h1#hero-name{font-size:56px;margin:6px 0 8px;color:var(--accent-dark);font-weigh
 .project-content ul{margin:0;padding-left:18px;color:var(--muted)}
 .project-cta{margin-left:18px}
 .details-btn{display:inline-block;padding:10px 16px;background:var(--accent);color:white;border-radius:8px;text-decoration:none}
+
+/* Vulnerability box on detail pages */
+.vuln-box{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:12px;padding:14px;margin:14px 0;border-left:4px solid var(--accent);}
+.vuln-box h3{margin-top:0}
+
+/* Documentation layout for detailed lab pages */
+.doc-layout{display:flex;gap:24px;align-items:flex-start}
+.doc-sidebar{width:220px;background:var(--surface);border-radius:10px;padding:12px;box-shadow:0 8px 20px var(--card-shadow)}
+.doc-nav{display:flex;flex-direction:column;gap:8px}
+.doc-nav-item{display:block;padding:10px 12px;border-radius:8px;color:var(--muted);text-decoration:none}
+.doc-nav-item.active{background:linear-gradient(90deg, rgba(76,121,255,0.06), transparent);color:var(--accent)}
+.doc-main{flex:1;background:transparent;padding:6px 0}
+.doc-breadcrumb{color:var(--muted);margin-bottom:8px}
+
+/* Code block style */
+.code-block{background:rgba(0,0,0,0.6);color:#fff;padding:12px;border-radius:8px;overflow:auto;font-family:Menlo,Monaco,Consolas,'Courier New',monospace}
+.code-block code{white-space:pre-wrap}
+
+@media (max-width:900px){
+    .doc-layout{flex-direction:column}
+    .doc-sidebar{width:100%}
+}
 
 @media (max-width:900px){
     .project-row{flex-direction:column;align-items:flex-start}
@@ -155,6 +242,22 @@ h1#hero-name{font-size:56px;margin:6px 0 8px;color:var(--accent-dark);font-weigh
     .hero{flex-direction:column;padding:28px}
     h1#hero-name{font-size:36px}
     .cards{flex-direction:column;align-items:center}
+}
+
+@media (max-width:900px){
+    /* Header stacking for tablet and mobile */
+    .site-header{align-items:flex-start;padding:12px 16px}
+    .site-header .brand{width:100%;margin-bottom:8px}
+    .site-header .main-nav{width:100%;justify-content:flex-start;padding-bottom:8px}
+    .site-header .controls{width:100%;justify-content:flex-start}
+    .main-nav a{padding:8px}
+}
+
+@media (max-width:480px){
+    .search-box{padding:10px;border-radius:12px}
+    .card{padding:22px}
+    h1#hero-name{font-size:28px}
+    .site-header{padding:10px}
 }
 .card {
     transition: transform 0.25s ease, box-shadow 0.25s ease;

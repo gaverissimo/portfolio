@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Docker básico – Executando um site com Nginx</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+    <div class="brand"><a href="index.html">Gabrielli Verissimo Santos</a></div>
+    <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <div class="nav-item has-dropdown">
+            <a href="labs.html" class="has-link">Labs & Projects</a>
+                <div class="dropdown">
+                <a href="labs-cloud.html">Cloud & Identity</a>
+                <a href="labs-security.html">Security</a>
+                <a href="labs-linux.html">Linux</a>
+                <a href="labs-devops.html">DevOps &amp; Automation</a>
+            </div>
+        </div>
+        <a href="sobre.html">Sobre Mim</a>
+    </nav>
+    <div class="controls">
+        <div class="lang-toggle"><button id="btn-pt-doclinux" class="lang active">PT</button><button id="btn-en-doclinux" class="lang">EN</button></div>
+
+        <input type="checkbox" id="darkmode-toggle" />
+        <label for="darkmode-toggle" class="dark-toggle-label">
+            <img src="images/sun.svg" class="sun" alt="sun">
+            <img src="images/moon.svg" class="moon" alt="moon">
+        </label>
+    </div>
+</header>
+
+<div class="background"></div>
+
+<main class="container doc-layout">
+    <aside class="doc-sidebar">
+        <div class="doc-nav">
+            <a class="doc-nav-item active">Details</a>
+            <a class="doc-nav-item">Docker</a>
+            <a class="doc-nav-item">Examples</a>
+        </div>
+    </aside>
+
+    <section class="doc-main">
+        <div class="doc-breadcrumb">Documents &rsaquo; DevOps &rsaquo; Docker</div>
+        <h1>Docker básico – Executando um site com Nginx</h1>
+        <p class="muted">Guia rápido com comandos básicos para executar um site simples utilizando Docker e Nginx.</p>
+
+        <section class="lab">
+
+            <h2>Fluxo do ambiente</h2>
+
+            <pre>
+Computador (host) → Container Docker → Nginx → Site estático
+            </pre>
+
+            <h2>Conceitos básicos</h2>
+
+            <h3>Docker</h3>
+            <p>Ferramenta que permite empacotar aplicações e suas dependências em containers, garantindo que rodem de forma consistente em qualquer ambiente.</p>
+
+            <h3>Container</h3>
+            <p>Ambiente isolado onde a aplicação é executada junto com todas as dependências necessárias.</p>
+
+            <h3>Nginx</h3>
+            <p>Servidor web utilizado para servir páginas estáticas ou atuar como proxy reverso.</p>
+
+            <h2>Comandos básicos</h2>
+
+            <h3>Ver containers em execução</h3>
+            <pre>
+docker ps
+            </pre>
+
+            <h3>Parar um container</h3>
+            <pre>
+docker stop ID_DO_CONTAINER
+            </pre>
+
+            <h3>Remover um container</h3>
+            <pre>
+docker rm ID_DO_CONTAINER
+            </pre>
+
+            <h3>Listar todos os containers (inclusive parados)</h3>
+            <pre>
+docker ps -a
+            </pre>
+
+            <h2>Executando Nginx apontando para o site</h2>
+
+            <p>Comando:</p>
+            <pre>
+docker run -d -p 3000:80 \
+-v $(pwd):/usr/share/nginx/html \
+nginx
+            </pre>
+
+            <h3>O que esse comando faz</h3>
+            <ul>
+                <li><strong>docker run</strong> → cria e inicia um container</li>
+                <li><strong>-d</strong> → executa o container em segundo plano</li>
+                <li><strong>-p 3000:80</strong> → mapeia a porta 3000 do computador para a porta 80 do container</li>
+                <li><strong>-v $(pwd):/usr/share/nginx/html</strong> → monta a pasta atual dentro do container</li>
+                <li><strong>nginx</strong> → imagem utilizada para criar o container</li>
+            </ul>
+
+            <p>O Docker utiliza a pasta atual como diretório do site dentro do Nginx:</p>
+            <pre>
+/usr/share/nginx/html
+            </pre>
+
+            <h2>Resultado</h2>
+            <p>Após executar o comando, o site pode ser acessado no navegador:</p>
+            <pre>
+http://localhost:3000
+            </pre>
+
+            <p>Nesse exemplo foi utilizada a porta 3000. Pode ser utilizada qualquer porta disponível em seu ambiente.</p>
+
+            <h2>Explicação</h2>
+            <p>Containerização de um site estático utilizando Docker e Nginx, mapeando o diretório local para o diretório padrão do servidor web dentro do container e expondo a porta para acesso pelo navegador.</p>
+
+        </section>
+
+        <p><a class="details-btn" href="labs-devops.html">&lsaquo; Voltar</a></p>
+    </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
